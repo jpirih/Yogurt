@@ -5,6 +5,7 @@ from handlers.base import MainHandler, CookieAlertHandler, AboutHandler
 from handlers.yogurt_productions import YogurtProductionCreate, YogurtProductionUpdate, YogurtProductionDelete
 from handlers.yogurt_productions import YogurtDeletedItems, YogurtProductionRestore
 from crons.deleted_data import DeleteYogurtProductionsCron
+from crons.yogurt_expired import YogurtExpiredCron
 app = webapp2.WSGIApplication([
 
     # application routes
@@ -19,5 +20,6 @@ app = webapp2.WSGIApplication([
 
     # cron jobs
     webapp2.Route('/cron/delete-data', handler=DeleteYogurtProductionsCron, name='cron-delete-yogurt-data'),
+    webapp2.Route('/cron/yogurt-expired', handler=YogurtExpiredCron, name='cron-yogurt-expired'),
 ], debug=True)
 

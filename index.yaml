@@ -21,3 +21,8 @@ indexes:
   - name: deleted
   - name: updated
     direction: desc
+
+- kind: Yogurt
+  properties:
+  - name: empty
+  - name: good_until

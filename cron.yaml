@@ -2,3 +2,7 @@ cron:
 - description: Delete yogurt production data older than 1 month
   url: /cron/delete-data
   schedule: every sunday 09:00
+
+- description: Expired Yogurt productions
+  url: /cron/yogurt-expired
+  schedule: every friday 09:00
