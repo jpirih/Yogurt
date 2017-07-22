@@ -1,0 +1,4 @@
+cron:
+- description: Delete yogurt production data older than 1 month
+  url: /cron/delete-data
+  schedule: every sunday 09:00

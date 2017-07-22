@@ -1,10 +1,10 @@
 # About
 
-GAE boilerplate for SmartNinja **Web development 2** course.
+This application is for my personal use it helps me keep track of all yogurt productions:
+All about quantities, and dates of production and how long is yogurt good to eat ...
 
-# Usage
+# Techology
 
-1. Click on Download ZIP
-2. Save on your disk and unzip
-3. Change the application ID in app.yaml
-4. Build something nice ;)
+1. Python Webapp2 
+2. Google appengine 
+3. Datastore
