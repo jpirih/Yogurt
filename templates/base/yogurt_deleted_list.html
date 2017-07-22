@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title%}
+Deleted items
+{% endblock title%}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="page-header text-center">
+            Data about Yogurt production - Trash
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="info-box">
+            {%if deleted_items %}
+            <table class="table table-responsive table-bordered">
+                <thead>
+                <tr class="table-header">
+                    <th>Production date</th>
+                    <th>Milk Quantity</th>
+                    <th>Cups</th>
+                    <th>Good Until</th>
+                    <th>All Eaten</th>
+                    <th>Deleted</th>
+                    <th>Restore</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for item in deleted_items %}
+                    <tr>
+                        <td>{{ item.production_date.strftime("%d.%m.%Y") }}</td>
+                        <td>{{ item.milk_quantity}}</td>
+                        <td>{{ item.cups }}</td>
+                        <td>{{ item.good_until.strftime("%d.%m.%Y")  }}</td>
+                        <td>{{ item.empty }}</td>
+                        <td>{{ item.updated.strftime("%d.%m.%Y") }}</td>
+                        <td>{% include "includes/yogurt_restore.html" %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>
+                There are no softly deleted data at the moment
+            </p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

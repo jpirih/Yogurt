@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Kekec Jogurt Production | {% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- javascript jquery -->
+    <script src="/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/jquery-ui/jquery-ui.js"></script>
+    <!-- jquery-ui theme -->
+    <link rel="stylesheet" href="/assets/js/jquery-ui/jquery-ui.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="/assets/custom/css/style.css">
+</head>
+
+<body>
+    <!-- main top navigation -->
+        <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Jogurt</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main_nav">
+      <ul class="nav navbar-nav navbar-right">
+         <li class="active"><a href="#">Home </a></li>
+         <li><a href="/about">About</a></li>
+          {% if logout_url %}
+            <li><a href="#">{{ user.email() }}</a></li>
+            <li><a href="{{ logout_url }}">Logout</a></li>
+        {% elif login_url %}
+            <li><a href="{{ login_url }}">Login</a></li>
+        {% endif %}
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    <!-- page content -->
+    <div class="container">
+        {% if cookies %}
+        {% else %}
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="alert alert-info" role="alert">
+                        Hey we use cookies. Please accept them
+                        <form action="/set-cookie" method="post">
+                            <button class="btn btn-success btn-xs" type="submit">I Accept</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+
+    {% block javascript %} {% endblock %}
+</body>
+</html>

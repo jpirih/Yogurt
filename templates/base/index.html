@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %} Production list  {% endblock  %}
+
+{% block content %}
+<div class="row">
+    <h1 class="page-header text-center">List of all Yogurt productions</h1>
+</div>
+<!-- add new jogurt production to the list  -->
+
+<div class="row">
+    <div class="col-sm-12">
+        {% include "includes/yogurt_production_add.html" %}
+    </div>
+</div>
+<br>
+
+<!-- yogurt production list -->
+<div class="row">
+    <div class="col-sm-8">
+        {% if yogurt_list %}
+            {% include "includes/yogurt_production_list.html" %}
+        {% else %}
+            <div class="alert alert-info">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Currently is no production data in db. Go ahead and add some.
+            </div>
+        {% endif %}
+    </div>
+    <div class="col-sm-4">
+        <h3>Shortcuts</h3>
+        <a href="/yogurt-deleted" role="button" class="btn btn-block btn-danger">
+            Deleted Items
+        </a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript%}
+<script>
+    $(document).ready(function () {
+        $('#production_date').datepicker({
+            format: 'dd.mm.yy',
+            showOtherMoths: true,
+            selectOtherMonths: true
+        });
+
+        $("#production_date_update").datepicker({
+            format: 'dd.mm.yy',
+            showOtherMoths: true,
+            selectOtherMonths: true
+        });
+    });
+
+</script>
+
+{% endblock %}
+

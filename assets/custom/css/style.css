@@ -1,0 +1,33 @@
+body {
+    padding-bottom: 50px;
+}
+
+
+.bold{
+    font-weight: bold;
+}
+
+.info-box{
+    padding: 15px;
+    border: 1px solid lightgrey;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: lightcyan;
+}
+
+.data-box{
+    padding: 15px;
+    border: 1px solid lightgrey;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: lightgreen;
+}
+
+.table-header {
+    background-color: #369;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
