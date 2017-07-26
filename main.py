@@ -2,10 +2,13 @@
 import webapp2
 
 from handlers.base import MainHandler, CookieAlertHandler, AboutHandler
+from handlers.yogurt_api import YogurtProductionApi
 from handlers.yogurt_productions import YogurtProductionCreate, YogurtProductionUpdate, YogurtProductionDelete
 from handlers.yogurt_productions import YogurtDeletedItems, YogurtProductionRestore
 from crons.deleted_data import DeleteYogurtProductionsCron
 from crons.yogurt_expired import YogurtExpiredCron
+
+
 app = webapp2.WSGIApplication([
 
     # application routes
@@ -15,8 +18,11 @@ app = webapp2.WSGIApplication([
     webapp2.Route('/yogurt-deleted', handler=YogurtDeletedItems, name="yogurt-deleted-list"),
     webapp2.Route('/yogurt/production/create',handler=YogurtProductionCreate, name="yogurt-production-create"),
     webapp2.Route('/yogurt/production/<yogurt_id:\d+>/update', handler=YogurtProductionUpdate,name="yogurt-production-update"),
-    webapp2.Route('/yogurt/production/<yogurt_id:\d+>/delete', handler=YogurtProductionDelete,name="yogurt-production-delete"),
-    webapp2.Route('/yogurt/production/<yogurt_id:\d+>/restore', handler=YogurtProductionRestore,name="yogurt-production-restore"),
+    webapp2.Route('/yogurt/production/<yogurt_id:\d+>/delete', handler=YogurtProductionDelete, name="yogurt-production-delete"),
+    webapp2.Route('/yogurt/production/<yogurt_id:\d+>/restore', handler=YogurtProductionRestore, name="yogurt-production-restore"),
+
+    # api routes
+    webapp2.Route('/api/yogurt/production-list', handler=YogurtProductionApi, name="yogurt-api-production-list"),
 
     # cron jobs
     webapp2.Route('/cron/delete-data', handler=DeleteYogurtProductionsCron, name='cron-delete-yogurt-data'),
