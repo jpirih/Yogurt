@@ -1,8 +1,8 @@
 import datetime
 import json
 
-def str_to_date(string_date):
 
+def str_to_date(string_date):
     """
     :rtype: Converts date string from html form to python date
     format for saving to datastore
