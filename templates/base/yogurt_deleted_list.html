@@ -39,7 +39,7 @@ Deleted items
                         <td>{{ item.good_until.strftime("%d.%m.%Y")  }}</td>
                         <td>{{ item.empty }}</td>
                         <td>{{ item.updated.strftime("%d.%m.%Y") }}</td>
-                        <td>{% include "includes/yogurt_restore.html" %}</td>
+                        <td>{% include "yogurt/includes/yogurt_restore.html" %}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

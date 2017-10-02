@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Production Dashboard
+{% endblock title %}
+
+{% block content %}
+    <!-- main title -->
+    <div class="row">
+        <div class="col-sm-12 page-header text-center">
+            <h1>Production Dashboard</h1>
+            <p class="lead">This is for authorized users only</p>
+        </div>
+    </div>
+
+    <!-- page content -->
+    <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="/assets/custom/img/yogurt.jpg" alt="yogurt" class="thumb-image img-rounded">
+      <div class="caption">
+        <h3>Yogurt Production</h3>
+        <p>Click on button below to manage yogurt production</p>
+        <p><a href="{{ uri_for('yogurt-index')  }}" class="btn btn-primary" role="button">Yogurt</a></p>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="/assets/custom/img/fresh_cheese.jpg" alt="fresh_cheese" class="thumb-image img-rounded">
+      <div class="caption">
+        <h3>Fresh Cheese Production</h3>
+        <p>Click on button below to manage yogurt production</p>
+        <p><a href="{{ uri_for('cheese-index') }}" class="btn btn-primary" role="button">Fresh Cheese</a></p>
+          <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

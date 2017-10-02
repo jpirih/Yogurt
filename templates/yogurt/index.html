@@ -10,7 +10,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-        {% include "includes/yogurt_production_add.html" %}
+        {% include "yogurt/includes/yogurt_production_add.html" %}
     </div>
 </div>
 <br>
@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col-sm-8">
         {% if yogurt_list %}
-            {% include "includes/yogurt_production_list.html" %}
+            {% include "yogurt/includes/yogurt_production_list.html" %}
         {% else %}
             <div class="alert alert-info">
                 <span class="glyphicon glyphicon-info-sign"></span>
@@ -29,6 +29,10 @@
     </div>
     <div class="col-sm-4">
         <h3>Shortcuts</h3>
+         </a>
+         <a href="/dashboard" role="button" class="btn btn-block btn-success">
+            Dashboard
+        </a>
         <a href="/yogurt-deleted" role="button" class="btn btn-block btn-danger">
             Deleted Items
         </a>
@@ -55,7 +59,6 @@
             selectOtherMonths: true
         });
     });
-
 </script>
 
 {% endblock %}

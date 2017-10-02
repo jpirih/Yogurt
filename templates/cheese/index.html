@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+<!-- tab title -->
+{% block title %} Cheese Production {% endblock title %}
+
+<!--  page content -->
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12 page-header text-center">
+            <h1>Fresh Cheese Production </h1>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-sm-12">
+        {% include "cheese/includes/cheese_production_add.html" %}
+    </div>
+</div>
+<br>
+
+<!-- yogurt production list -->
+<div class="row">
+    <div class="col-sm-8">
+        {% if cheese_list %}
+            {% include "cheese/includes/cheese_production_list.html" %}
+        {% else %}
+            <div class="alert alert-info">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                Currently is no production data in db. Go ahead and add some.
+            </div>
+        {% endif %}
+    </div>
+    <div class="col-sm-4">
+        <h3>Shortcuts</h3>
+        <a href="/dashboard" role="button" class="btn btn-block btn-success">
+            Dashboard
+        </a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript%}
+<script>
+    $(document).ready(function () {
+        $('#cheese_prod_date').datepicker({
+            format: 'dd.mm.yy',
+            showOtherMoths: true,
+            selectOtherMonths: true
+        });
+
+        $("#production_date_update").datepicker({
+            format: 'dd.mm.yy',
+            showOtherMoths: true,
+            selectOtherMonths: true
+        });
+    });
+</script>
+{% endblock %}

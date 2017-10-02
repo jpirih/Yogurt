@@ -64,3 +64,5 @@ class Yogurt(ndb.Model):
         """ Completely removes yogurt production data from the datastore"""
         return yogurt.key.delte()
 
+
+

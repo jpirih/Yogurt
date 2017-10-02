@@ -5,28 +5,22 @@
             <tr class="table-header">
                 <th>Date</th>
                 <th>Milk (Liter)</th>
-                <th>Cups (pieces)</th>
-                <th>Good Unitil</th>
-                <th>All Eaten</th>
+                <th>Quantity (kg)</th>
             </tr>
         </thead>
         <tbody>
-            {% for item in yogurt_list %}
-                {% include "includes/update_yogurt_production.html" %}
+            {% for item in cheese_list %}
                 <tr>
                     <td>
-                        {{ item.production_date.strftime('%d.%m.%Y')}}
+                        {{ item.prod_date.strftime('%d.%m.%Y')}}
                         <span class="pull-right">
                             <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#yogurt_update{{ item.key.id() }}">
                               Edit
                             </button>
                         </span>
                     </td>
-                    <td>{{ item.milk_quantity }}</td>
-                    <td>{{ item.cups }}</td>
-                    <td>{{ item.good_until.strftime('%d.%m.%Y') }}</td>
-                    <td>{{ item.empty }}</td>
-
+                    <td>{{ item.milk_liters }}</td>
+                    <td>{{ item.quantity }}</td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -4,6 +4,16 @@ from utils.helpers import str_to_date, good_until_calculate
 from utils.decorators import login_required, validate_csrf
 
 
+class YogurtHandler(BaseHandler):
+    """Yogurt production view controller"""
+
+    def get(self):
+        """ Main application page view add, edit, delete """
+        yogurt_list = Yogurt.get_all()
+        params = {"yogurt_list": yogurt_list}
+        return self.render_template_with_csrf("yogurt/index.html", params=params)
+
+
 class YogurtProductionCreate(BaseHandler):
     @login_required
     @validate_csrf
@@ -36,7 +46,7 @@ class YogurtProductionUpdate(BaseHandler):
         Yogurt.update(yogurt=yogurt,production_date=prod_date, milk_quantity=milk_quantity,
                       cups=cups, good_until=good_until, empty=empty)
 
-        return self.redirect_to('main-page')
+        return self.redirect_to('yogurt-index')
 
 
 class YogurtProductionDelete(BaseHandler):

@@ -26,6 +26,8 @@ class BaseHandler(webapp2.RequestHandler):
     def render_template(self, view_filename, params=None):
         if not params:
             params = {}
+            path = "main-page"
+            params['uri_for'] = webapp2.uri_for
         # cookie law
         cookie_law = self.request.cookies.get("cookie_law")
         if cookie_law:
@@ -46,6 +48,8 @@ class BaseHandler(webapp2.RequestHandler):
     def render_template_with_csrf(self, view_filename, params=None):
         if not params:
             params = {}
+            path = "main-page"
+            params['uri_for'] = webapp2.uri_for
 
         # cookie_law
         cookie_law = self.request.cookies.get("cookie_law")
@@ -73,15 +77,21 @@ class MainHandler(BaseHandler):
     @login_required
     def get(self):
         """ Main application page view add, edit, delete """
-        yogurt_list = Yogurt.get_all()
-        params = {"yogurt_list": yogurt_list}
-        return self.render_template_with_csrf("base/index.html", params=params)
+        return self.redirect_to('dashboard')
 
 
 class AboutHandler(BaseHandler):
     def get(self):
         """About page view first landing page"""
         return self.render_template("base/about.html")
+
+
+class DashboardHandler(BaseHandler):
+    """Dashboard handler class """
+    @login_required
+    def get(self):
+        """Dashboard page view controller """
+        return self.render_template("base/dashboard.html")
 
 
 class CookieAlertHandler(BaseHandler):

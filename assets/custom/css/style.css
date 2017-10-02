@@ -31,3 +31,7 @@ body {
     font-weight: bold;
     text-align: center;
 }
+.thumb-image{
+    height: 200px;
+    width: 242px;
+}
