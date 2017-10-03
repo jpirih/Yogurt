@@ -25,9 +25,10 @@ class BaseHandler(webapp2.RequestHandler):
 
     def render_template(self, view_filename, params=None):
         if not params:
-            params = {}
-            path = "main-page"
-            params['uri_for'] = webapp2.uri_for
+            params = {'uri_for': webapp2.uri_for}
+
+        params['uri_for'] = webapp2.uri_for
+
         # cookie law
         cookie_law = self.request.cookies.get("cookie_law")
         if cookie_law:
@@ -46,10 +47,11 @@ class BaseHandler(webapp2.RequestHandler):
         return self.response.out.write(template.render(params))
 
     def render_template_with_csrf(self, view_filename, params=None):
+
         if not params:
-            params = {}
-            path = "main-page"
-            params['uri_for'] = webapp2.uri_for
+            params = {'uri_for': webapp2.uri_for}
+
+        params['uri_for'] = webapp2.uri_for
 
         # cookie_law
         cookie_law = self.request.cookies.get("cookie_law")
@@ -76,7 +78,7 @@ class BaseHandler(webapp2.RequestHandler):
 class MainHandler(BaseHandler):
     @login_required
     def get(self):
-        """ Main application page view add, edit, delete """
+        """ User dashboard """
         return self.redirect_to('dashboard')
 
 

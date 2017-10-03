@@ -1,5 +1,5 @@
 <div class="data-box">
-    <form action="yogurt/production/create" method="post" class="form-inline">
+<form action="{{ uri_for('yogurt-production-create') }}" method="post" class="form-inline">
         <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
         <input type="text" class="form-control" name="production_date" id="production_date" placeholder="Production Date">
         <input type="text" class="form-control" name="milk_quantity" placeholder="Milk in liters">

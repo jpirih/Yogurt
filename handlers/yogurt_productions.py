@@ -25,7 +25,7 @@ class YogurtProductionCreate(BaseHandler):
         date = str_to_date(prod_date)
         good_until = good_until_calculate(date)
         Yogurt.create(production_date=date, milk_quantity=milk_quantity, cups=cups, good_until=good_until)
-        return self.redirect_to('main-page')
+        return self.redirect_to('yogurt-index')
 
 
 class YogurtProductionUpdate(BaseHandler):
