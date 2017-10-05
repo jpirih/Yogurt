@@ -6,7 +6,7 @@ from utils.decorators import login_required, validate_csrf
 
 class YogurtHandler(BaseHandler):
     """Yogurt production view controller"""
-
+    @login_required
     def get(self):
         """ Main application page view add, edit, delete """
         yogurt_list = Yogurt.get_all()

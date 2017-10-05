@@ -1,0 +1,48 @@
+
+<!-- Modal -->
+<div class="modal fade" id="cheese_update{{ item.key.id() }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="mymodallabel">Update Prodction</h4>
+      </div>
+      <div class="modal-body">
+          <form action="/cheese/production/{{ item.key.id() }}/update" method="post" class="form-horizontal">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <div class="form-group">
+              <label for="cheese_prod_date_update" class="control-label col-sm-4">Production date</label>
+              <div class="col-sm-8">
+                <input type="text" name="production_date" id="cheese_prod_date_update" class="form-control"
+                       value="{{ item.prod_date.strftime('%m/%d/%Y') }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="milk_liters" class="control-label col-sm-4">Milk Quantity (Liter)</label>
+              <div class="col-sm-8">
+                <input type="text" name="milk_liters" id="milk_liters" class="form-control" value="{{ item.milk_liters }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="quantity" class="control-label col-sm-4">Cups</label>
+              <div class="col-sm-8">
+                <input type="text" name="quantity" id="quantity" class="form-control" value="{{ item.quantity}}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-8 col-sm-offset-4">
+                <button class="btn btn-success">
+                    Save
+                </button>
+              </div>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

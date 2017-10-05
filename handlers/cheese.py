@@ -30,4 +30,17 @@ class StoreCheeseHandler(BaseHandler):
         return self.redirect_to('cheese-index')
 
 
+class UpdateCheeseHandler(BaseHandler):
+    def post(self, cheese_id):
+        # data from update form
+        production_date = self.request.get('production_date')
+        milk_liters = float(self.request.get('milk_liters'))
+        quantitiy = int(self.request.get('quantity'))
+        updated_date = str_to_date(production_date)
+
+        cheese = Cheese.get_by_id(int(cheese_id))
+
+        Cheese.update(cheese=cheese, prod_date=updated_date, milk_liters=milk_liters, quantity=quantitiy)
+        return self.redirect_to('cheese-index')
+
 

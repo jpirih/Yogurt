@@ -2,7 +2,7 @@
 import webapp2
 
 from handlers.base import MainHandler, CookieAlertHandler, AboutHandler, DashboardHandler
-from handlers.cheese import CheeseHandler, StoreCheeseHandler
+from handlers.cheese import CheeseHandler, StoreCheeseHandler, UpdateCheeseHandler
 from handlers.yogurt_api import YogurtProductionApi
 from handlers.yogurt_productions import YogurtProductionCreate, YogurtProductionUpdate, YogurtProductionDelete
 from handlers.yogurt_productions import YogurtDeletedItems, YogurtProductionRestore, YogurtHandler
@@ -21,6 +21,7 @@ app = webapp2.WSGIApplication([
     # fresh cheese
     webapp2.Route('/cheese/production', handler=CheeseHandler, name="cheese-index"),
     webapp2.Route('/cheese/production/create', handler=StoreCheeseHandler, name="cheese-production-create"),
+    webapp2.Route('/cheese/production/<cheese_id:\d+>/update', handler=UpdateCheeseHandler,name="cheese-update"),
 
     # yogurt
     webapp2.Route('/yogurt-deleted', handler=YogurtDeletedItems, name="yogurt-deleted-list"),

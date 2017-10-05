@@ -28,3 +28,12 @@ class Cheese(ndb.Model):
         new_cheese.put()
         return new_cheese
 
+    @classmethod
+    def update(cls, cheese, prod_date, milk_liters, quantity):
+        """Stores updated cheese production data to database"""
+        cheese.prod_date = prod_date
+        cheese.milk_liters = milk_liters
+        cheese.quantity = quantity
+        cheese.put()
+
+        return cheese

@@ -10,11 +10,12 @@
         </thead>
         <tbody>
             {% for item in cheese_list %}
+                {% include('cheese/includes/update_cheese.html') %}
                 <tr>
                     <td>
                         {{ item.prod_date.strftime('%d.%m.%Y')}}
                         <span class="pull-right">
-                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#yogurt_update{{ item.key.id() }}">
+                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#cheese_update{{ item.key.id() }}">
                               Edit
                             </button>
                         </span>
