@@ -1,0 +1,50 @@
+/* Variables */
+$font-stack: Arial, sans-serif;
+$border-color: #808080;
+$info-color: #E0FFFF;
+$data-color: #90EE90;
+$header-color: #336699;
+$header-text-color: #FFFFFF;
+
+/*Mixins*/
+@mixin border-radius($radius){
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+/* default classes*/
+.bold{
+    font-weight: bold;
+}
+.box{
+    @include border-radius(5px);
+    border: 1px solid $border-color;
+    padding: 15px;
+}
+/* html elemnts*/
+body {
+    padding-bottom: 50px;
+    font-family: $font-stack;
+    font-size: 150%;
+}
+/* Custom classes*/
+.info-box{
+    @extend .box;
+    background-color: $info-color;
+}
+
+.data-box{
+    @extend .box;
+    background-color: $data-color;
+}
+
+.table-header {
+    background-color: $header-color;
+    color: $header-text-color;
+    @extend .bold;
+    text-align: center;
+}
+.thumb-image{
+    height: 200px;
+    width: 242px;
+}

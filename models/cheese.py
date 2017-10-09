@@ -35,5 +35,4 @@ class Cheese(ndb.Model):
         cheese.milk_liters = milk_liters
         cheese.quantity = quantity
         cheese.put()
-
         return cheese

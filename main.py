@@ -21,13 +21,13 @@ app = webapp2.WSGIApplication([
     # fresh cheese
     webapp2.Route('/cheese/production', handler=CheeseHandler, name="cheese-index"),
     webapp2.Route('/cheese/production/create', handler=StoreCheeseHandler, name="cheese-production-create"),
-    webapp2.Route('/cheese/production/<cheese_id:\d+>/update', handler=UpdateCheeseHandler,name="cheese-update"),
+    webapp2.Route('/cheese/production/<cheese_id:\d+>/update', handler=UpdateCheeseHandler, name="cheese-update"),
 
     # yogurt
     webapp2.Route('/yogurt-deleted', handler=YogurtDeletedItems, name="yogurt-deleted-list"),
     webapp2.Route('/yogurt/production', handler=YogurtHandler, name="yogurt-index"),
     webapp2.Route('/yogurt/production/create', handler=YogurtProductionCreate, name="yogurt-production-create"),
-    webapp2.Route('/yogurt/production/<yogurt_id:\d+>/update', handler=YogurtProductionUpdate,name="yogurt-production-update"),
+    webapp2.Route('/yogurt/production/<yogurt_id:\d+>/update', handler=YogurtProductionUpdate, name="yogurt-production-update"),
     webapp2.Route('/yogurt/production/<yogurt_id:\d+>/delete', handler=YogurtProductionDelete, name="yogurt-production-delete"),
     webapp2.Route('/yogurt/production/<yogurt_id:\d+>/restore', handler=YogurtProductionRestore, name="yogurt-production-restore"),
 

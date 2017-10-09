@@ -1,0 +1,34 @@
+{
+  "name": "yogurt",
+  "version": "1.0.0",
+  "description": "\"Application for overseeing home yougurt and fresh cheese production\"",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpirih/Yogurt.git"
+  },
+  "keywords": [
+    "yogurt",
+    "fresh_ceese",
+    "home_use",
+    "python",
+    "GAE"
+  ],
+  "author": "Janko Pirih",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpirih/Yogurt/issues"
+  },
+  "homepage": "https://github.com/jpirih/Yogurt#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0"
+  }
+}

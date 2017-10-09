@@ -40,7 +40,6 @@ class Yogurt(ndb.Model):
         yogurt.good_until = good_until
         yogurt.empty = empty
         yogurt.put()
-
         return yogurt
 
     @classmethod
@@ -48,7 +47,6 @@ class Yogurt(ndb.Model):
         """Yogurt production soft delete"""
         yogurt.deleted = True
         yogurt.put()
-
         return yogurt
 
     @classmethod
@@ -56,13 +54,10 @@ class Yogurt(ndb.Model):
         """ Restores soft deleted yogurt production data """
         yogurt.deleted = False
         yogurt.put()
-
         return yogurt
 
     @classmethod
     def destroy(cls, yogurt):
         """ Completely removes yogurt production data from the datastore"""
         return yogurt.key.delte()
-
-
 
